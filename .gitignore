@@ -1,0 +1,5 @@
+/CodeGen/obj
+/CodeGen/bin
+/.vs
+/CodeGen/.idea
+*.sln
