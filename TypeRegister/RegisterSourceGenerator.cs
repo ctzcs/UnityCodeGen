@@ -8,23 +8,9 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace CodeGen
 {
-    
-    public class RegisterSerializeData
-    {
-        public string typeNamespace;
-        public string selfTypeName;
-        public string baseTypeName;
-        public string registerTypeName;
-
-        public RegisterSerializeData()
-        {
-            typeNamespace = "";
-            selfTypeName = "";
-            baseTypeName = "";
-            registerTypeName = "";
-        }
-    }
-    
+    /// <summary>
+    /// Source Generator
+    /// </summary>
     [Generator]
     public class RegisterSourceGenerator : ISourceGenerator
     {
@@ -72,6 +58,9 @@ namespace CodeGen
         }
     }
     
+    /// <summary>
+    /// Syntax Tree Analysis
+    /// </summary>
     public class CollectRegisterSyntaxReceiver : ISyntaxReceiver
     {
         //注册的类型名对应要注册进入的类型
@@ -156,15 +145,12 @@ namespace CodeGen
                 }
             }
         }
-
-
         
     }
 }
 
 
 /*
-
 public class RegisterAttribute:Attribute
 {
     public string registerTypeName;
@@ -175,7 +161,4 @@ public class RegisterAttribute:Attribute
     }
     
 }
-
-//用法:
-
 */
