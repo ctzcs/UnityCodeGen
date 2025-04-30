@@ -4,3 +4,8 @@
 /CodeGen/.idea
 *.sln
 /.idea
+/EventBus/bin
+/EventBus/obj
+/TypeRegister/bin
+/TypeRegister/obj
+/TypeRegister/.idea

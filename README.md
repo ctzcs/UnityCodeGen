@@ -25,7 +25,7 @@ Roslyn Version: 3.8
 
 ---
 
-## Register
+## TypeRegister
 
 **Purpose**: Use the `[Register("xxx")]` attribute to register subclasses into a shared dictionary within a parent class.
 
@@ -108,5 +108,39 @@ namespace CodeGen_Register
         }
     }
 }
+
+
+
+```
+
+## Arch.EventBus
+Import EventBus of Arch.Extension. It is high performance! [Arch.Extension](https://github.com/genaray/Arch.Extended)
+
+
+```csharp
+
+public partial class MyInstanceReceiver {
+
+   public MysInstanceReceiver(){ Hook(); } // To start listening.
+
+   [Event(order...)]
+   public void OnShootEvent(ref ShootEvent @event){
+      // Handle
+   }
+   
+   ... Other event receiving methods
+}
+
+public static class SomeEventHandler{
+
+   [Event(order: ...)]
+   public static void OnShootFireBullets(ref ShootEvent event){  // ref, none, in supported and all types as a event. Only one param!
+      // Do stuff
+   }
+   ...
+}
+
+var shootEvent = ...;
+EventBus.Send(ref shootEvent); // Broadcasts the event to all annotated static methods wherever they are.
 ```
 

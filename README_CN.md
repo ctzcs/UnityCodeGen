@@ -127,6 +127,36 @@ namespace CodeGen_Register
 }
 ```
 
+## Arch.EventBus
+导入Arch.Extension的EventBus.性能和非常好!原地址=> [Arch.Extension](https://github.com/genaray/Arch.Extended)
+
+```csharp
+
+public partial class MyInstanceReceiver {
+
+   public MysInstanceReceiver(){ Hook(); } // To start listening.
+
+   [Event(order...)]
+   public void OnShootEvent(ref ShootEvent @event){
+      // Handle
+   }
+   
+   ... Other event receiving methods
+}
+
+public static class SomeEventHandler{
+
+   [Event(order: ...)]
+   public static void OnShootFireBullets(ref ShootEvent event){  // ref, none, in supported and all types as a event. Only one param!
+      // Do stuff
+   }
+   ...
+}
+
+var shootEvent = ...;
+EventBus.Send(ref shootEvent); // Broadcasts the event to all annotated static methods wherever they are.
+```
+
 
 
 
